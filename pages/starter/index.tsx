@@ -6,6 +6,7 @@ import LabelsElement from "@/components/Elements/Labels";
 import HeadTitleElement from "@/components/Elements/Labels/HeadTitle";
 import LabelTagsElement from "@/components/Elements/Labels/LabelTags";
 import ListViewElement from "@/components/Elements/ListViews";
+import PaginationElement from "@/components/Elements/Paginations";
 import TabWizardElement from "@/components/Elements/TabWizards";
 import Link from "next/link";
 
@@ -342,6 +343,20 @@ const StarterPage = () => {
                     },
                   ]}
                 />
+                <PaginationElement
+                  className="mb-4 justify-end"
+                  pages={[
+                    {
+                      active: true,
+                      page: 1,
+                    },
+                    {
+                      active: false,
+                      page: 2,
+                    },
+                  ]}
+                />
+
                 <div className="py-6 border-b md:border md:rounded-lg md:px-8 mt-2">
                   <HeadTitleElement text="Title" className="text-lg" />
                   <div className="my-6">
@@ -360,11 +375,16 @@ const StarterPage = () => {
               </div>
               <div className="ml-4 md:w-1/4">
                 <div className="hidden md:block">
-                  <LabelsElement text="News feed" className="text-base font-semibold text-black" />
+                  <LabelsElement
+                    text="News feed"
+                    className="text-base font-semibold text-black"
+                  />
                   <div className="pb-2 mt-4 border-b">
-                    <LabelsElement text="A utility-first CSS framework for rapid UI development." className="text-sm lg:text-base" />
+                    <LabelsElement
+                      text="A utility-first CSS framework for rapid UI development."
+                      className="text-sm lg:text-base"
+                    />
                     <div className="my-4">
-                      
                       <div className="flex flex-wrap gap-2 my-4">
                         <LabelTagsElement text="Finance" />
                         <LabelTagsElement text="Vendor" />
@@ -406,10 +426,22 @@ const StarterPage = () => {
                     </span>
                   </p>
                   <div className="flex flex-wrap items-center mt-4 -mx-2 overflow-hidden">
-                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
-                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
-                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
-                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
+                    <ImgUsersElement
+                      className="mx-2"
+                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    />
+                    <ImgUsersElement
+                      className="mx-2"
+                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    />
+                    <ImgUsersElement
+                      className="mx-2"
+                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    />
+                    <ImgUsersElement
+                      className="mx-2"
+                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    />
                   </div>
                   <p className="pt-2 text-xs font-medium text-blue-700 hover:underline">
                     + 4 contributors
