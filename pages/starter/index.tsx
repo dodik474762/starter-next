@@ -1,9 +1,13 @@
 import ButtonDefaultElement from "@/components/Elements/ButtonDefaults";
 import ButtonElement from "@/components/Elements/Buttons";
+import ImgUsersElement from "@/components/Elements/Images/ImgUsers";
 import InputElement from "@/components/Elements/Input";
-import LabelLinkElement from "@/components/Elements/Labels/LabelLink";
+import LabelsElement from "@/components/Elements/Labels";
+import HeadTitleElement from "@/components/Elements/Labels/HeadTitle";
+import LabelTagsElement from "@/components/Elements/Labels/LabelTags";
 import ListViewElement from "@/components/Elements/ListViews";
 import TabWizardElement from "@/components/Elements/TabWizards";
+import Link from "next/link";
 
 const StarterPage = () => {
   return (
@@ -30,36 +34,18 @@ const StarterPage = () => {
                       placeholder="Search Jump To"
                       className="hidden px-4 py-1 text-sm text-white placeholder-white bg-gray-700"
                     />
-                    <a
-                      href="#"
+                    <Link
+                      href={"/"}
                       className="px-3 py-2 ml-4 text-sm font-semibold text-white bg-gray-900 rounded-md focus:outline-none hover:bg-gray-700 focus:text-white focus:bg-gray-700"
                     >
                       Dashboard
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      href={"/"}
                       className="px-3 py-2 ml-4 text-sm font-semibold text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                     >
                       Pull requests
-                    </a>
-                    <a
-                      href="#"
-                      className="px-3 py-2 ml-4 text-sm font-semibold text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >
-                      Issues
-                    </a>
-                    <a
-                      href="#"
-                      className="px-3 py-2 ml-4 text-sm font-semibold text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >
-                      Marketplace
-                    </a>
-                    <a
-                      href="#"
-                      className="px-3 py-2 ml-4 text-sm font-semibold text-gray-300 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                    >
-                      Explore
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -284,20 +270,26 @@ const StarterPage = () => {
             </div>
           </div>
 
-          <TabWizardElement data={[
-            {
-                'title': 'Overview',
-                'keyNode': true,
-                'isActive': true,
-                'onClick': () => {console.log("click 1")}
-            },
-            {
-                'title': 'Monitoring',
-                'keyNode': true,
-                'isActive': false,
-                'onClick': () => {console.log("click 2")}
-            },
-          ]} />
+          <TabWizardElement
+            data={[
+              {
+                title: "Overview",
+                keyNode: true,
+                isActive: true,
+                onClick: () => {
+                  console.log("click 1");
+                },
+              },
+              {
+                title: "Monitoring",
+                keyNode: true,
+                isActive: false,
+                onClick: () => {
+                  console.log("click 2");
+                },
+              },
+            ]}
+          />
 
           <div className="container pb-10 mx-auto mt-8">
             <div className="md:flex">
@@ -327,246 +319,57 @@ const StarterPage = () => {
                     className="bg-gray-100 border border-gray-400 md:hidden"
                   />
                 </div>
-               <ListViewElement title="Title" subTitle="SubTitle" onRefreshClick={() => {}} data={[
-                {
-                    'title': 'Overview',
-                    'remars': 'Remarks Overview',
-                    'description' : 'Description Overview',
-                    'onClick': () => {console.log("click 1")}
-                },
-                {
-                    'title': 'Overview 2',
-                    'remars': 'Remarks Overview 2',
-                    'description' : 'Description Overview 2',
-                    'onClick': () => {console.log("click 2")}
-                }
-               ]}/>
-
-                <div className="py-6 border-b md:border md:rounded-lg md:px-8">
-                  <div className="font-semibold text-black">README.md</div>
+                <ListViewElement
+                  title="Title"
+                  subTitle="SubTitle"
+                  onRefreshClick={() => {}}
+                  data={[
+                    {
+                      title: "Overview",
+                      remars: "Remarks Overview",
+                      description: "Description Overview",
+                      onClick: () => {
+                        console.log("click 1");
+                      },
+                    },
+                    {
+                      title: "Overview 2",
+                      remars: "Remarks Overview 2",
+                      description: "Description Overview 2",
+                      onClick: () => {
+                        console.log("click 2");
+                      },
+                    },
+                  ]}
+                />
+                <div className="py-6 border-b md:border md:rounded-lg md:px-8 mt-2">
+                  <HeadTitleElement text="Title" className="text-lg" />
                   <div className="my-6">
                     <img
                       className="w-64"
                       src="https://camo.githubusercontent.com/87d7034892fd41dc88f3606bb44b853f87cd2c51/68747470733a2f2f7265666163746f72696e6775692e6e7963332e63646e2e6469676974616c6f6365616e7370616365732e636f6d2f7461696c77696e642d6c6f676f2e737667"
                       alt=""
                     />
-                    <p>
-                      A utility-first CSS framework for rapidly building custom
-                      user interfaces.{" "}
-                    </p>
-                    <div className="flex">
-                      <div className="flex mr-2 items-center my-4">
-                        <div className="flex items-center px-2 leading-none py-1 text-white bg-gray-800 rounded-l-md cursor-pointer">
-                          <span className="self-center text-xs font-medium">
-                            build
-                          </span>
-                        </div>
-                        <div className="px-2 text-xs font-semibold text-white leading-none py-1 bg-green-500 rounded-r-md cursor-pointer">
-                          passing
-                        </div>
-                      </div>
-                      <div className="flex mr-2 items-center my-4">
-                        <div className="flex items-center px-2 leading-none py-1 text-white bg-gray-800 rounded-l-md cursor-pointer">
-                          <span className="self-center text-xs font-medium">
-                            downloads
-                          </span>
-                        </div>
-                        <div className="px-2 text-xs font-semibold text-white leading-none py-1 bg-green-500 rounded-r-md cursor-pointer">
-                          8.7M
-                        </div>
-                      </div>
-                    </div>
+                    <LabelsElement
+                      text="Labels"
+                      className="semi-bold text-lg"
+                    />
                     <hr />
-                  </div>
-                  <div className="mb-6">
-                    <div className="flex items-center pb-2 -mx-4 text-lg font-bold leading-normal text-transparent hover:text-gray-700">
-                      <svg
-                        className="w-4 h-4 mr-1 cursor-pointer"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                      </svg>
-                      <p className="text-black">Documentation</p>
-                    </div>
-                    <hr />
-                    <div className="my-4">
-                      For full documentation, visit{" "}
-                      <a href="#" className="text-blue-600 hover:underline">
-                        tailwindcss.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="mb-6">
-                    <div className="flex items-center pb-2 -mx-4 text-lg font-bold leading-normal text-transparent hover:text-gray-700">
-                      <svg
-                        className="w-4 h-4 mr-1 cursor-pointer"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                      </svg>
-                      <p className="text-black">Community</p>
-                    </div>
-                    <hr />
-                    <div className="my-4">
-                      For help, discussion about best practices, or any other
-                      conversation that would benefit from being searchable:
-                    </div>
-                    <a href="#" className="my-4 text-blue-600 hover:underline">
-                      Discuss Tailwind CSS on GitHub
-                    </a>
-                    <div className="my-4">
-                      For casual chit-chat with others using the framework:
-                    </div>
-                    <a href="#" className="my-4 text-blue-600 hover:underline">
-                      Join the Tailwind CSS Discord Server
-                    </a>
-                  </div>
-                  <div className="mb-6">
-                    <div className="flex items-center pb-2 -mx-4 text-lg font-bold leading-normal text-transparent hover:text-gray-700">
-                      <svg
-                        className="w-4 h-4 mr-1 cursor-pointer"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                      </svg>
-                      <p className="text-black">Contributing</p>
-                    </div>
-                    <hr />
-                    <div className="my-4">
-                      If you're interested in contributing to Tailwind CSS,
-                      please read our{" "}
-                      <a href="#" className="text-blue-600 hover:underline">
-                        contributing docs
-                      </a>{" "}
-                      <span className="font-semibold text-black">
-                        before submitting a pull request.
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
               <div className="ml-4 md:w-1/4">
                 <div className="hidden md:block">
-                  <p className="text-base font-semibold text-black">About</p>
+                  <LabelsElement text="News feed" className="text-base font-semibold text-black" />
                   <div className="pb-2 mt-4 border-b">
-                    <span className="text-sm lg:text-base">
-                      A utility-first CSS framework for rapid UI development.
-                    </span>
+                    <LabelsElement text="A utility-first CSS framework for rapid UI development." className="text-sm lg:text-base" />
                     <div className="my-4">
-                      <a
-                        className="flex items-center mb-2 text-base font-semibold text-blue-600 hover:underline"
-                        href="#"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2 text-gray-700"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-                        </svg>
-                        tailwindcss.com/
-                      </a>
+                      
                       <div className="flex flex-wrap gap-2 my-4">
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          tailwindcss
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          css
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          css-framework
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          postcss
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          functional-css
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          utility-classes
-                        </a>
-                        <a
-                          href="#"
-                          className="px-2 py-1 text-xs leading-none text-blue-600 bg-blue-100 rounded-full hover:bg-blue-200"
-                        >
-                          responsive
-                        </a>
+                        <LabelTagsElement text="Finance" />
+                        <LabelTagsElement text="Vendor" />
+                        <LabelTagsElement text="Sales Orders" />
                       </div>
-                      <a
-                        href=""
-                        className="flex items-center mb-2 text-base font-medium text-gray-700 hover:underline"
-                      >
-                        <svg
-                          className="w-4 h-4 mr-2 text-gray-700 fill-current mr-2 octicon octicon-book"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          version="1.1"
-                          width="16"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm8.755 3a2.25 2.25 0 012.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574z"
-                          ></path>
-                        </svg>
-                        Readme
-                      </a>
-                      <a
-                        href=""
-                        className="flex items-center mb-2 text-base font-medium text-gray-700 hover:underline"
-                      >
-                        <svg
-                          height="16"
-                          className="w-4 h-4 mr-2 text-gray-700 fill-current"
-                          viewBox="0 0 16 16"
-                          version="1.1"
-                          width="16"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M8.75.75a.75.75 0 00-1.5 0V2h-.984c-.305 0-.604.08-.869.23l-1.288.737A.25.25 0 013.984 3H1.75a.75.75 0 000 1.5h.428L.066 9.192a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.514 3.514 0 00.686.45A4.492 4.492 0 003 11c.88 0 1.556-.22 2.023-.454a3.515 3.515 0 00.686-.45l.045-.04.016-.015.006-.006.002-.002.001-.002L5.25 9.5l.53.53a.75.75 0 00.154-.838L3.822 4.5h.162c.305 0 .604-.08.869-.23l1.289-.737a.25.25 0 01.124-.033h.984V13h-2.5a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-2.5V3.5h.984a.25.25 0 01.124.033l1.29.736c.264.152.563.231.868.231h.162l-2.112 4.692a.75.75 0 00.154.838l.53-.53-.53.53v.001l.002.002.002.002.006.006.016.015.045.04a3.517 3.517 0 00.686.45A4.492 4.492 0 0013 11c.88 0 1.556-.22 2.023-.454a3.512 3.512 0 00.686-.45l.045-.04.01-.01.006-.005.006-.006.002-.002.001-.002-.529-.531.53.53a.75.75 0 00.154-.838L13.823 4.5h.427a.75.75 0 000-1.5h-2.234a.25.25 0 01-.124-.033l-1.29-.736A1.75 1.75 0 009.735 2H8.75V.75zM1.695 9.227c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L3 6.327l-1.305 2.9zm10 0c.285.135.718.273 1.305.273s1.02-.138 1.305-.273L13 6.327l-1.305 2.9z"
-                          ></path>
-                        </svg>
-                        MIT License
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -597,122 +400,20 @@ const StarterPage = () => {
                 </div>
                 <div className="px-6 py-6 -mx-10 border-b md:mx-0 md:px-0">
                   <p className="text-base font-semibold text-black">
-                    User by
-                    <span className="w-4 h-4 px-2 py-1 ml-1 text-xs bg-gray-300 rounded-full">
-                      5,000 +
-                    </span>
-                  </p>
-                  <div className="flex items-center mt-4 overflow-hidden text-blue-600 cursor-pointer hover:underline">
-                    <img
-                      className="inline-block object-cover w-10 h-10 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1553521041-d168abd31de3?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="inline-block object-cover w-10 h-10 -ml-2 text-white border-2 border-gray-400 rounded-full shadow-sm"
-                      src="https://images.unsplash.com/photo-1460904577954-8fadb262612c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1240&q=80"
-                      alt=""
-                    />
-                    <p className="pl-2 text-sm font-medium text-blue-600">
-                      + 49,635
-                    </p>
-                  </div>
-                </div>
-                <div className="px-6 py-6 -mx-10 border-b md:mx-0 md:px-0">
-                  <p className="text-base font-semibold text-black">
                     Contributors
                     <span className="w-4 h-4 px-2 py-1 ml-1 text-xs bg-gray-300 rounded-full">
-                      109
+                      {109}
                     </span>
                   </p>
                   <div className="flex flex-wrap items-center mt-4 -mx-2 overflow-hidden">
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1553521041-d168abd31de3?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <img
-                      className="object-cover w-10 h-10 mx-2 mt-2 text-white border-2 border-gray-400 rounded-full shadow-sm cursor-pointer md:mt-0"
-                      src="https://images.unsplash.com/photo-1460904577954-8fadb262612c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1240&q=80"
-                      alt=""
-                    />
+                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
+                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
+                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
+                  <ImgUsersElement className="mx-2" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />                    
                   </div>
                   <p className="pt-2 text-xs font-medium text-blue-700 hover:underline">
-                    + 98 contributors
+                    + 4 contributors
                   </p>
-                </div>
-                <div className="px-6 py-6 -mx-10 border-b md:mx-0 md:px-0">
-                  <p className="text-base font-semibold text-black">
-                    Languages
-                  </p>
-                  <div className="w-full mt-4 bg-yellow-500 rounded-full shadow">
-                    <div className="w-11/12 py-1 text-xs leading-none text-center text-white bg-purple-800 rounded-full"></div>
-                  </div>
-                  <div className="flex mt-4">
-                    <div className="flex items-center text-sm">
-                      <div className="w-2 h-2 mr-2 bg-purple-800 rounded-full"></div>
-                      CSS 94.1 %
-                    </div>
-                    <div className="flex items-center ml-4 text-sm">
-                      <div className="w-2 h-2 mr-2 bg-yellow-500 rounded-full"></div>
-                      Javascript 5.9%
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -721,7 +422,7 @@ const StarterPage = () => {
                 <div className="items-center justify-between py-8 border-t md:flex">
                   <div className="flex justify-start justify-between text-xs md:mt-0 md:w-2/5">
                     <div className="mr-4 text-gray-600">
-                      &copy; 2020 GitHub, Inc.
+                      &copy; 2020 Dodik Rismawan, Inc.
                     </div>
                     <div className="mr-4">
                       <a
