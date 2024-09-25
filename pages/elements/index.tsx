@@ -1,18 +1,17 @@
 import ButtonDefaultElement from "@/components/Elements/ButtonDefaults";
-import ButtonElement from "@/components/Elements/Buttons";
+import RoundedButtonElement from "@/components/Elements/Buttons/RoundedButtons";
 import ImgUsersElement from "@/components/Elements/Images/ImgUsers";
 import InputElement from "@/components/Elements/Input";
 import SelectElement from "@/components/Elements/Input/Selects";
+import SelectSearchElement from "@/components/Elements/Input/Selects/SelectSearchs";
 import LabelsElement from "@/components/Elements/Labels";
 import HeadTitleElement from "@/components/Elements/Labels/HeadTitle";
 import LabelTagsElement from "@/components/Elements/Labels/LabelTags";
-import ListViewElement from "@/components/Elements/ListViews";
-import PaginationElement from "@/components/Elements/Paginations";
 import TableDefaultElement from "@/components/Elements/Tables";
 import TabWizardElement from "@/components/Elements/TabWizards";
 import Link from "next/link";
 
-const StarterPage = () => {
+const ElementPage = () => {
   return (
     <>
       <div className="bg-white">
@@ -130,11 +129,11 @@ const StarterPage = () => {
                 </svg>
               </span>
               <div className="text-xl font-medium text-blue-700 cursor-pointer hover:underline">
-                Dashboard
+                Elements
               </div>
               <span className="mx-1 text-xl font-medium text-gray-800">/</span>
               <div className="text-xl font-semibold text-blue-700 cursor-pointer hover:underline">
-                monitoring
+                Components
               </div>
             </div>
             <div className="mt-4 mb-2 md:hidden">
@@ -216,11 +215,7 @@ const StarterPage = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block md:flex md:justify-between">
-              <ButtonElement text="Watch" suffixText="423" />
-              <ButtonElement text="Data" className="ml-2" />
-              <ButtonElement text="Watch" suffixText="423" className="ml-2" />
-            </div>
+            <div className="hidden md:block md:flex md:justify-between"></div>
             <div className="flex justify-between md:hidden">
               <button
                 type="button"
@@ -276,19 +271,11 @@ const StarterPage = () => {
           <TabWizardElement
             data={[
               {
-                title: "Overview",
+                title: "Components",
                 keyNode: true,
                 isActive: true,
                 onClick: () => {
                   console.log("click 1");
-                },
-              },
-              {
-                title: "Monitoring",
-                keyNode: true,
-                isActive: false,
-                onClick: () => {
-                  console.log("click 2");
                 },
               },
             ]}
@@ -297,67 +284,55 @@ const StarterPage = () => {
           <div className="container pb-10 mx-auto mt-8">
             <div className="md:flex">
               <div className="w-full mr-4 md:w-3/4">
-                <div className="flex justify-between">
-                  <InputElement
-                    placeholder="Search"
-                    className="border border-gray-400 px-4 py-1 text-sm"
-                  />
-                  <div className="flex hidden md:block md:flex">
-                    <ButtonDefaultElement
-                      text="Go to File"
-                      className="bg-gray-100 border border-gray-400"
+                <div className="flex justify-between flex-col">
+                  <div className="flex flex-row">
+                    <SelectElement
+                      name="select"
+                      placeholder="Select"
+                      className="w-1/4"
+                      data={[
+                        {
+                          value: "1",
+                          text: "Option 1",
+                        },
+                        {
+                          value: "2",
+                          text: "Option 2",
+                        },
+                      ]}
+                    />
+                    <SelectSearchElement
+                      text="Pilih Data"
+                      options={[
+                        {
+                          value: "1",
+                          text: "Option 1",
+                          onClick: () => {},
+                        },
+                      ]}
                     />
                     <ButtonDefaultElement
-                      text="Add Data"
-                      className="bg-blue-100"
-                      suffixIcon={true}
-                    />
-                    <ButtonDefaultElement
-                      text="Confirm"
+                      text="Success"
                       className="bg-green-600 border border-green-700 text-white hover:bg-green-700"
                     />
+                    <ButtonDefaultElement
+                      text="Danger"
+                      className="bg-red-600 border border-red-700 text-white hover:bg-red-700"
+                    />
+                    <ButtonDefaultElement
+                      text="Warning"
+                      className="bg-yellow-600 border border-yellow-700 text-white hover:bg-yellow-700"
+                    />
+                    <ButtonDefaultElement
+                      text="Info"
+                      className="bg-blue-600 border border-blue-700 text-white hover:bg-blue-700"
+                    />
                   </div>
-                  <ButtonDefaultElement
-                    text="Go to File"
-                    className="bg-gray-100 border border-gray-400 md:hidden"
-                  />
+
+                  <RoundedButtonElement className="bg-red-100 text-red-500" />
+                  <TableDefaultElement />
                 </div>
-                <ListViewElement
-                  title="Title"
-                  subTitle="SubTitle"
-                  onRefreshClick={() => {}}
-                  data={[
-                    {
-                      title: "Overview",
-                      remars: "Remarks Overview",
-                      description: "Description Overview",
-                      onClick: () => {
-                        console.log("click 1");
-                      },
-                    },
-                    {
-                      title: "Overview 2",
-                      remars: "Remarks Overview 2",
-                      description: "Description Overview 2",
-                      onClick: () => {
-                        console.log("click 2");
-                      },
-                    },
-                  ]}
-                />
-                <PaginationElement
-                  className="mb-4 justify-end"
-                  pages={[
-                    {
-                      active: true,
-                      page: 1,
-                    },
-                    {
-                      active: false,
-                      page: 2,
-                    },
-                  ]}
-                />               
+                <hr />
 
                 <div className="py-6 border-b md:border md:rounded-lg md:px-8 mt-2">
                   <HeadTitleElement text="Title" className="text-lg" />
@@ -573,4 +548,4 @@ const StarterPage = () => {
   );
 };
 
-export default StarterPage;
+export default ElementPage;
