@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 
 const SelectSearchElement = (props: any) => {
-  const {
-    className,
-    children,
-    text,
-    isHideItem = false,
-    options = []
-  } = props;
+  const { className, text, isHideItem = true, options = [], values } = props;
 
   const [data, setData] = useState<any>(options);
+  const [hide, setHide] = useState<boolean>(isHideItem);
 
   const handleSearchChange = (e: any) => {
     const value = e.target.value;
@@ -23,6 +18,10 @@ const SelectSearchElement = (props: any) => {
     }
   };
 
+  const handleShowItem = () => {
+    setHide(!hide);
+  };
+
   useEffect(() => {
     setData(options);
   }, [options]);
@@ -31,6 +30,7 @@ const SelectSearchElement = (props: any) => {
     <div className={`flex items-center justify-center mx-3 ${className}`}>
       <div className="relative group">
         <button
+          onClick={handleShowItem}
           id="dropdown-button"
           className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
         >
@@ -52,7 +52,7 @@ const SelectSearchElement = (props: any) => {
         <div
           id="dropdown-menu"
           className={`absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1 ${
-            isHideItem ? "hidden" : ""
+            hide ? "hidden" : ""
           }`}
         >
           <input
@@ -63,6 +63,7 @@ const SelectSearchElement = (props: any) => {
             autoComplete="off"
             onInput={handleSearchChange}
           />
+        
           {data.map((item: any) => (
             <a
               href="#"

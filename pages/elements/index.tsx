@@ -302,7 +302,9 @@ const ElementPage = () => {
                       ]}
                     />
                     <SelectSearchElement
-                      text="Pilih Data"
+                      text="Option 1"
+                      values={["Option 1"]}
+                      isHideItem={true}
                       options={[
                         {
                           value: "1",
@@ -330,7 +332,16 @@ const ElementPage = () => {
                   </div>
 
                   <RoundedButtonElement className="bg-red-100 text-red-500" />
-                  <TableDefaultElement />
+                  <TableDefaultElement title="Table List" subTitle="Subtitle" addButton={true} thItems={['title', 'subtitle']} trItems={[
+                    {
+                      title: "Title",
+                      subtitle: "Subtitle",
+                    },
+                    {
+                      title: "Title 2",
+                      subtitle: "Subtitle 2",
+                    }
+                  ]}/>
                 </div>
                 <hr />
 
